@@ -5,7 +5,7 @@ pipeline {
         stage('Sleep Stage') {
             steps {
                 echo 'Simulating long process...'
-                sh 'sleep 1000'
+                sh 'sleep 100'
             }
         }
 
