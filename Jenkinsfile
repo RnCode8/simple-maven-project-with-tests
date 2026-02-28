@@ -2,16 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Sleep Stage') {
+        stage('Build') {
             steps {
-                echo 'Simulating long process...'
+                echo 'Starting Build Stage...'
                 sh 'sleep 100'
+                echo 'Build Stage Complete → Triggering Test Stage'
             }
         }
 
-        stage('Build') {
+        stage('Test') {
             steps {
-                echo 'Building...'
+                echo 'Starting Test Stage...'
+                sh 'echo Running tests...'
+                echo 'Test Stage Complete'
             }
         }
     }
