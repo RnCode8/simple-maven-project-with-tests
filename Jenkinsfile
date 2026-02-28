@@ -2,20 +2,32 @@ pipeline {
     agent any
 
     stages {
+
         stage('Build') {
             steps {
-                echo 'Starting Build Stage...'
-                sh 'echo Compiling application...'
-                echo 'Build Stage Complete → Triggering Test Stage'
+                echo 'Running Build Stage...'
+                sh 'echo Compiling source code'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Starting Test Stage...'
-                sh 'echo Running tests...'
-                echo 'Test Stage Complete'
+                echo 'Running Test Stage...'
+                sh 'echo Executing tests'
             }
+        }
+
+        stage('Package') {
+            steps {
+                echo 'Packaging application...'
+                sh 'echo Creating artifact'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
         }
     }
 }
