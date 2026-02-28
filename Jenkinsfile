@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Starting Build Stage...'
-                sh 'sleep 100'
+                sh 'echo Compiling application...'
                 echo 'Build Stage Complete → Triggering Test Stage'
             }
         }
